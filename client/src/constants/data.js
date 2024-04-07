@@ -1,5 +1,5 @@
 export const clientId =
-  "1048791608872-s377lgqslpilbq65qprs5suh66t56du9.apps.googleusercontent.com";
+  "1047517052265-5670b81e8jbt1qrod9ia5qu2fahgofq8.apps.googleusercontent.com";
 
 export const iconPDF =
   "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/27_Pdf_File_Type_Adobe_logo_logos-512.png";
