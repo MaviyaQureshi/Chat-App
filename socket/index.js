@@ -1,8 +1,6 @@
 import { Server } from "socket.io";
 import WebSocket, { WebSocketServer } from "ws";
 
-const websServer = "wss://https://chat-app-1-vakd.onrender.com";
-
 const wss = new WebSocketServer({
   port: 9000,
 });
