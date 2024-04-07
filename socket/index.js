@@ -1,9 +1,9 @@
 import { Server } from "socket.io";
 import WebSocket, { WebSocketServer } from "ws";
 
-const wss = new WebSocketServer({
-  port: 9000,
-});
+const websServer = "wss://https://chat-app-1-vakd.onrender.com";
+
+const wss = new WebSocketServer(websServer);
 
 // Map to store users by their socket ID
 const usersMap = new Map();
