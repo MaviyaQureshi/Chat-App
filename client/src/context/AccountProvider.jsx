@@ -13,7 +13,7 @@ const AccountProvider = ({ children }) => {
 
     useEffect(() => {
         // Create WebSocket connection using correct URL
-        socket.current = io('wss://chat-app-f4mn.onrender.com');
+        socket.current = io('ws://https://chat-app-1-vakd.onrender.com');
 
         // Event listener for handling connection errors
         socket.current.on('connect_error', (error) => {
