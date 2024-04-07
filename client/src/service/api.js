@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:8000";
+const baseURL = "https://chat-app-f4mn.onrender.com";
 
 const api = axios.create({
   baseURL,

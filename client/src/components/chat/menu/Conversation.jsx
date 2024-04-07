@@ -80,7 +80,7 @@ const Conversation = ({ user }) => {
                     }
                 </Container>
                 <Box>
-                    <Text>{message?.text?.includes('localhost') ? 'media' : message.text}</Text>
+                    <Text>{message?.text?.includes('https://chat-app-f4mn.onrender.com') ? 'media' : message.text}</Text>
                 </Box>
             </Box>
         </Component>
