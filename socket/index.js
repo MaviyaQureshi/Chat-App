@@ -1,6 +1,9 @@
 import { Server } from "socket.io";
+import WebSocket, { WebSocketServer } from "ws";
 
-const io = new Server(9000);
+const wss = new WebSocketServer({
+  port: 9000,
+});
 
 // Map to store users by their socket ID
 const usersMap = new Map();
@@ -35,14 +38,14 @@ const getUser = (userId) => {
   return usersMap.get(userId);
 };
 
-io.on("connection", (socket) => {
+wss.on("connection", (socket) => {
   console.log("User connected");
 
   // Handle new user connection
   socket.on("addUser", (userData) => {
     try {
       addUser(userData, socket.id);
-      io.emit("getUsers", Array.from(usersMap.values()));
+      wss.emit("getUsers", Array.from(usersMap.values()));
     } catch (error) {
       console.error("Error adding user:", error);
     }
@@ -53,7 +56,7 @@ io.on("connection", (socket) => {
     try {
       const user = getUser(data.receiverId);
       if (user && user.socketId) {
-        io.to(user.socketId).emit("getMessage", data);
+        wss.to(user.socketId).emit("getMessage", data);
       } else {
         console.log(`User ${data.receiverId} is not connected.`);
       }
@@ -66,6 +69,6 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("User disconnected");
     removeUser(socket.id);
-    io.emit("getUsers", Array.from(usersMap.values()));
+    wss.emit("getUsers", Array.from(usersMap.values()));
   });
 });

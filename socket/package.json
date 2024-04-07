@@ -6,12 +6,13 @@
   "type": "module",
   "scripts": {
     "start": "nodemon index.js",
-    "build":"npm i --force"
+    "build": "npm i --force"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "nodemon": "^2.0.19",
-    "socket.io": "^4.5.1"
+    "socket.io": "^4.5.1",
+    "ws": "^8.16.0"
   }
 }

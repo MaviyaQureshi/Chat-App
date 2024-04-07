@@ -4,17 +4,27 @@ import { io } from 'socket.io-client';
 export const AccountContext = createContext(null);
 
 const AccountProvider = ({ children }) => {
-    const [account, setAccount] = useState();
+    const [account, setAccount] = useState(null); // Initialize account state with null
     const [showLoginButton, setShowLoginButton] = useState(true);
     const [showLogoutButton, setShowLogoutButton] = useState(false);
     const [activeUsers, setActiveUsers] = useState([]);
     const [newMessageFlag, setNewMessageFlag] = useState(false);
-    const socket = useRef();
+    const socket = useRef(null); // Initialize socket ref with null
 
     useEffect(() => {
-        socket.current = io('wss://https://chat-app-f4mn.onrender.com');
+        // Create WebSocket connection using correct URL
+        socket.current = io('wss://chat-app-f4mn.onrender.com');
+
+        // Event listener for handling connection errors
+        socket.current.on('connect_error', (error) => {
+            console.error('WebSocket connection error:', error);
+        });
+
         return () => {
-            socket.current.disconnect();
+            // Clean up WebSocket connection on component unmount
+            if (socket.current) {
+                socket.current.disconnect();
+            }
         };
     }, []);
 
