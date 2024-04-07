@@ -1,10 +1,6 @@
 import { Server } from "socket.io";
 
-const io = new Server(9000, {
-  cors: {
-    origin: "https://chat-app-f4mn.onrender.com",
-  },
-});
+const io = new Server(9000);
 
 // Map to store users by their socket ID
 const usersMap = new Map();
