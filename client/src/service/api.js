@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://chat-app-f4mn.onrender.com";
+const baseURL = "https://chat-app-phi-coral.vercel.app";
 
 const api = axios.create({
   baseURL,
