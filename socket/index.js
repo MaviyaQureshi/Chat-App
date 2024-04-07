@@ -4,7 +4,7 @@ import WebSocket, { WebSocketServer } from "ws";
 const websServer = "wss://https://chat-app-1-vakd.onrender.com";
 
 const wss = new WebSocketServer({
-  port: 7000,
+  port: 9000,
 });
 
 // Map to store users by their socket ID
