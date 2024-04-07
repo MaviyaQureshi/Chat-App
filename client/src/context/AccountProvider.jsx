@@ -12,7 +12,7 @@ const AccountProvider = ({ children }) => {
     const socket = useRef();
 
     useEffect(() => {
-        socket.current = io('ws://https://chat-app-f4mn.onrender.com');
+        socket.current = io('wss://https://chat-app-f4mn.onrender.com');
         return () => {
             socket.current.disconnect();
         };
